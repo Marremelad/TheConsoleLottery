@@ -20,7 +20,6 @@ class Program
 
                 do
                 {
-                    Console.WriteLine();
                     Console.WriteLine("How many tickets do you want");
                     isNumber = int.TryParse(Console.ReadLine(), out number);
                     if (!isNumber || number < 1)
