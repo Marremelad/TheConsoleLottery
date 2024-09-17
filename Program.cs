@@ -3,11 +3,10 @@
 class Program
 {
     
-    
-    static void Main(string[] args) {
+    void Main(string[] args) {
         // 5 lottonummer;
-
-        static int GetNumberOfTickets() {
+        
+        int GetNumberOfTickets() {
             bool isNumber;
             int number;
             
@@ -20,7 +19,7 @@ class Program
             return number;
         }
         
-        static int[] GetTicketNumbers(int number, int[] array) {
+        int[] GetTicketNumbers(int number, int[] array) {
             
             for (int i = 0; i < number; i++) {
                 bool isNumber;
@@ -37,7 +36,7 @@ class Program
             return array;
         }
         
-        static int[] GetWinningNumbers(int[] array) {
+        int[] GetWinningNumbers(int[] array) {
             Random random = new Random();
             for (int i = 0; i < 3; i++) {
                 int number;
@@ -52,7 +51,7 @@ class Program
             return array;
         }
         
-        static int ComapareNumbers(int[] playerArray, int[] randomArray) {
+        int ComapareNumbers(int[] playerArray, int[] randomArray) {
             int matchingNumbers = 0;
             foreach (int number in randomArray) {
                 if (playerArray.Contains(number)) matchingNumbers++;
