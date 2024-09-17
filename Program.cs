@@ -6,17 +6,21 @@ class Program
     
     static void Main(string[] args) {
         // 5 lottonummer;
-        bool isNumber;
-        int numberOfTickets;
-        Random random = new Random();
 
-        // Hello World!
-        // Get number of tickets.
-        do {
-            Console.WriteLine();
-            Console.WriteLine("How many tickets do you want");
-            isNumber = int.TryParse(Console.ReadLine(), out numberOfTickets);
-        } while (!isNumber);
+        static int getNumberOfTickets() {
+            bool isNumber;
+            int numberOfTickets;
+            Random random = new Random();
+            
+            do {
+                Console.WriteLine();
+                Console.WriteLine("How many tickets do you want");
+                isNumber = int.TryParse(Console.ReadLine(), out numberOfTickets);
+            } while (!isNumber);
+
+            return numberOfTickets;
+        }
+        
         
         // Initialises arrays.
         int[] tickets = new int[numberOfTickets];
