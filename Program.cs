@@ -9,46 +9,42 @@ class Program
 
         static int getNumberOfTickets() {
             bool isNumber;
-            int numberOfTickets;
-            Random random = new Random();
+            int number;
             
             do {
                 Console.WriteLine();
                 Console.WriteLine("How many tickets do you want");
-                isNumber = int.TryParse(Console.ReadLine(), out numberOfTickets);
+                isNumber = int.TryParse(Console.ReadLine(), out number);
             } while (!isNumber);
 
-            return numberOfTickets;
+            return number;
         }
         
-        
         // Initialises arrays.
+        int numberOfTickets = getNumberOfTickets();
         int[] tickets = new int[numberOfTickets];
         int[] winningNumbers = new int[3];
         
         // Get ticket numbers.
-        for (int i = 0; i < numberOfTickets; i++) {
-            int ticketNumber;
+        static int getTicketNumbers(array) {
+            Random random = new Random();
+            for (int i = 0; i < 3; i++) {
+                int number;
             
-            Console.WriteLine("What ticket number do you want?");
-            
-            do {
-                isNumber = int.TryParse(Console.ReadLine(), out ticketNumber);
-            } while (!isNumber);
+                do {
+                    number = random.Next(1, 51);
+                } while (array.Contains(number));
 
-            tickets[i] = ticketNumber;
+                array[i] = number;
+            }
+
+            return array;
+
         }
         
+        
         // Get winning numbers.
-        for (int i = 0; i < 3; i++) {
-            int number;
-            
-            do {
-                number = random.Next(1, 51);
-            } while (winningNumbers.Contains(number));
-
-            winningNumbers[i] = number;
-        }
+        
         
         // Validates matches between chosen numbers and winning numbers.
         int matchingNumbers = 0;
