@@ -2,8 +2,6 @@
 
 class Program
 {
-    
-    
     static void Main(string[] args) {
         bool gameActive = true;
         while (gameActive==true)
