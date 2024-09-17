@@ -7,7 +7,7 @@ class Program
         bool isNumber;
         int numberOfTickets;
         Random random = new Random();
-        
+        // Hello World!
         // Get number of tickets.
         do {
             Console.WriteLine();
