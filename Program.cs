@@ -27,18 +27,17 @@ class Program
         
         // Get ticket numbers.
         static int getTicketNumbers(array) {
-            Random random = new Random();
-            for (int i = 0; i < 3; i++) {
-                int number;
+            for (int i = 0; i < numberOfTickets; i++) {
+                int ticketNumber;
+            
+                Console.WriteLine("What ticket number do you want?");
             
                 do {
-                    number = random.Next(1, 51);
-                } while (array.Contains(number));
+                    isNumber = int.TryParse(Console.ReadLine(), out ticketNumber);
+                } while (!isNumber);
 
-                array[i] = number;
+                tickets[i] = ticketNumber;
             }
-
-            return array;
 
         }
         
