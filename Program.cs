@@ -43,6 +43,15 @@ class Program
         
         
         // Get winning numbers.
+        for (int i = 0; i < 3; i++) {
+            int number;
+            
+            do {
+                number = random.Next(1, 51);
+            } while (winningNumbers.Contains(number));
+
+            winningNumbers[i] = number;
+        }
         
         
         // Validates matches between chosen numbers and winning numbers.
