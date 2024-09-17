@@ -20,14 +20,10 @@ class Program
             return number;
         }
         
-        // Initialises arrays.
-        int numberOfTickets = getNumberOfTickets();
-        int[] tickets = new int[numberOfTickets];
-        int[] winningNumbers = new int[3];
-        
-        // Get ticket numbers.
-        static int getTicketNumbers(array) {
-            for (int i = 0; i < numberOfTickets; i++) {
+        static int[] getTicketNumbers(int number, int[] array) {
+            
+            for (int i = 0; i < number; i++) {
+                bool isNumber;
                 int ticketNumber;
             
                 Console.WriteLine("What ticket number do you want?");
@@ -36,10 +32,19 @@ class Program
                     isNumber = int.TryParse(Console.ReadLine(), out ticketNumber);
                 } while (!isNumber);
 
-                tickets[i] = ticketNumber;
+                array[i] = ticketNumber;
             }
-
+            return array;
         }
+        
+        // Initialises arrays.
+        int numberOfTickets = getNumberOfTickets();
+        
+        int[] tickets = new int[numberOfTickets];
+        int[] winningNumbers = new int[3];
+        
+        
+        
         
         
         // Get winning numbers.
