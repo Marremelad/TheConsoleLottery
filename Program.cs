@@ -3,23 +3,36 @@
 class Program
 {
     static void Main(string[] args) {
-        bool gameActive = true;
-        while (gameActive==true)
-        {
-            TheGame();
-            Console.WriteLine("Do you want to play again? (y/n)");
-            if ((Console.ReadLine() ?? string.Empty).ToLower() == "n") gameActive = false;
-        }
+        int balance = 100;
+        Console.WriteLine("Welcome to The Console Lottery. You have 100$ in your account. Each ticket costs 10$ Good luck!");
 
-        void TheGame()
-        {
-            static int GetNumberOfTickets()
+        bool gameActive = true;
+        while (gameActive)
+        { 
+            TheGame();
+            // Console.Clear();
+            Console.WriteLine("Do you want to play again? (y/n)");
+
+            bool isValid = false;
+            do {
+                string? userInput = Console.ReadLine();
+                if (userInput == "y" || userInput == "n") {
+                    isValid = true;
+                    if (userInput == "n") gameActive = false;
+                }
+
+            } while (!isValid);
+        }
+        
+        void TheGame() {
+            int GetNumberOfTickets() 
             {
                 bool isNumber;
                 int number;
-
+                
                 do
                 {
+                    //Console.Clear();
                     Console.WriteLine("How many tickets do you want");
                     isNumber = int.TryParse(Console.ReadLine(), out number);
                     if (!isNumber || number < 1)
@@ -32,6 +45,12 @@ class Program
                 return number;
             }
 
+            void CalculateBalance (int numberOfTickets) {
+                // Console.Clear();
+                Console.WriteLine($"you have purchased {numberOfTickets} tickets for {numberOfTickets * 10}$\nYou currently have {balance - (numberOfTickets * 10)}$ left.");
+                balance -= numberOfTickets * 10;
+            }
+
             int[] GetTicketNumbers(int number, int[] array, int numberOfTickets)
             {
 
@@ -39,7 +58,7 @@ class Program
                 {
                     bool isNumber;
                     int ticketNumber;
-    
+                    //Console.Clear();
                     Console.WriteLine($"Choose a number for your ({i + 1}/{numberOfTickets}) ticket:");
     
                     do {
@@ -58,6 +77,8 @@ class Program
                     } while (!isNumber);
 
                     array[i] = ticketNumber;
+                    var result = array.Select(n => n == 0 ? "X" : n.ToString());
+                    Console.WriteLine("Chosen Numbers: [{0}]", string.Join(", ", result));
                 }
 
                 return array;
@@ -72,7 +93,7 @@ class Program
 
                     do
                     {
-                        number = random.Next(1, 51);
+                        number = random.Next(1, 4);
                     } while (array.Contains(number));
 
                     array[i] = number;
@@ -81,37 +102,39 @@ class Program
                 return array;
             }
 
-            int ComapareNumbers(int[] playerArray, int[] randomArray)
-            {
+            int ComapareNumbers(int[] playerArray, int[] randomArray) {
                 int matchingNumbers = 0;
-                foreach (int number in randomArray)
-                {
-                    if (playerArray.Contains(number)) matchingNumbers++;
+                foreach (int number in randomArray) {
+                    if (playerArray.Contains(number)) {
+                        matchingNumbers++;
+                    }
                 }
-
                 return matchingNumbers;
             }
 
-            void ShowResult(int number)
-            {
+            void ShowResult(int number) {
+                //Console.Clear();
                 switch (number)
                 {
                     case 1:
-                        Console.WriteLine("You got one number right!");
+                        balance += 100;
+                        Console.WriteLine("You got one number right! You win 100$");
                         break;
                     case 2:
-                        Console.WriteLine("You got two numbers right!");
+                        balance += 200;
+                        Console.WriteLine("You got two numbers right! You win 200$");
                         break;
                     case 3:
-                        Console.WriteLine("You won the JackPot!!! Congratulations!");
+                        balance += 10000;
+                        Console.WriteLine("JackPot!!! Congratulations! You win 10000$");
                         break;
                     default:
                         Console.WriteLine("You won nothing, better luck next time!");
                         break;
                 }
             }
-
             int numberOfTickets = GetNumberOfTickets();
+            CalculateBalance(numberOfTickets);
 
             int[] tickets = new int[numberOfTickets];
             int[] winningNumbers = new int[3];
