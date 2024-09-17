@@ -60,7 +60,7 @@ class Program
                     int ticketNumber;
                     //Console.Clear();
                     Console.WriteLine($"Choose a number for your ({i + 1}/{numberOfTickets}) ticket:");
-    
+                    //Hello
                     do {
                         isNumber = int.TryParse(Console.ReadLine(), out ticketNumber);
         
