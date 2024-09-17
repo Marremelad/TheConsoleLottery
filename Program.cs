@@ -2,11 +2,14 @@
 
 class Program
 {
+    
+    
     static void Main(string[] args) {
         // 5 lottonummer;
         bool isNumber;
         int numberOfTickets;
         Random random = new Random();
+
         // Hello World!
         // Get number of tickets.
         do {
