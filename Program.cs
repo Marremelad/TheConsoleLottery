@@ -1,4 +1,8 @@
-﻿namespace TheConsoleLottery;
+﻿//Gruppuppgift
+//Mauricio Corte, Max Berglund, Edwin Torres
+//.NET24
+
+namespace TheConsoleLottery;
 
 class Program
 {
