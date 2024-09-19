@@ -1,1 +1,1 @@
-Gruppuppgift, The Console Lottery LOL.
+Gruppuppgift, The Console Lottery.
