@@ -1,4 +1,4 @@
-﻿//Gruppuppgift
+﻿//Gruppuppgift - The Console Lottery
 //Mauricio Corte, Max Berglund, Edwin Torres
 //.NET24
 
