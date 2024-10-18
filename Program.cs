@@ -8,6 +8,7 @@ class Program
 {
     //Hello
     static void Main(string[] args) {
+        Console.Clear();
         int balance = 100;
         Console.WriteLine("Welcome to The Console Lottery. You have 100$ in your account. Each ticket costs 10$ Good luck!");
 
